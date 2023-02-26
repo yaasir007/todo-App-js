@@ -8,6 +8,6 @@ btn.addEventListener('click', () => {
     console.log("Please add an item");
   }
   todoContainer.innerHTML = inputValue;
-  inputField.innerHTML = "";
+  inputField.value = "";
 
 })
