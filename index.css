@@ -1,0 +1,11 @@
+.field {
+  background-color: aquamarine;
+}
+
+.displayTodos {
+  background-color: rgb(136, 64, 64);
+  color: white;
+  width: 400px;
+  height: 400px;
+  margin-top: 50px;
+}
