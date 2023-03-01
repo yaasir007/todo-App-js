@@ -1,16 +1,23 @@
-.field {
-  background-color: aquamarine;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.displayTodos {
-  background-color: rgb(136, 64, 64);
-  color: white;
-  margin-top: 50px;
+.todo-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-wrapper {
+  max-width: 500px;
+  border: 1px solid lightcoral;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
-.delete {
-  display: none;
-}
+
