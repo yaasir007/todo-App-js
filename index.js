@@ -2,18 +2,18 @@ const btn = document.querySelector(".btnSubmit");
 const todoContainer = document.querySelector(".items");
 const inputField = document.querySelector(".field");
 const btnDelete = document.querySelector(".delete");
-const container = [];
+
+
 btn.addEventListener('click', () => {
   const inputValue = document.querySelector(".field").value;
   if (inputValue === '') {
     console.log("Please add an item");
   }
-  container.push(inputValue);
+  btnDelete.style.display = "block";
+  inputField.value = "";
 
-  container.forEach((element) => {
-    todoContainer.innerHTML += element;
-    btnDelete.style.display = "block";
-    inputField.value = "";
-  });
+  const deleteBtnElement = document.createElement(span);
+  deleteBtnElement.classList.add('delete');
+  todoContainer.innerHTML += `${inputValue} ${deleteBtnElement} </br>`;
 
 })
