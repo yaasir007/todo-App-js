@@ -1,19 +1,41 @@
-const btn = document.querySelector(".btnSubmit");
-const todoContainer = document.querySelector(".items");
-const inputField = document.querySelector(".field");
-const btnDelete = document.querySelector(".delete");
+const inputElement = document.querySelector(".fieldBox");
+const btnAddElement = document.querySelector(".btnSubmit");
 
+const AllTodoItemElement = document.querySelector(".displayTodos");
+const btnDeleteElement = document.querySelector(".delete");
 
-btn.addEventListener('click', () => {
-  const inputValue = document.querySelector(".field").value;
-  if (inputValue === '') {
-    console.log("Please add an item");
+AllTodoItemElement.style.display = "none";
+
+const alltoDos = [];
+
+btnAddElement.addEventListener("click", (e) => {
+  e.preventDefault();
+  let inputValue = inputElement.value;
+
+  let createTodo = () => {
+    AllTodoItemElement.innerHTML += `
+    <div class="items">
+    <span class="todoContent">${inputValue}</span>
+    <button class="delete" onClick="deleteTodo(this)"><i class="fa-solid fa-trash"></i></button>
+    </div>
+    `;
+    
+    AllTodoItemElement.style.display = "block";
+
   }
-  btnDelete.style.display = "block";
-  inputField.value = "";
 
-  const deleteBtnElement = document.createElement(span);
-  deleteBtnElement.classList.add('delete');
-  todoContainer.innerHTML += `${inputValue} ${deleteBtnElement} </br>`;
+  let deleteTodo = (e) => {
+    e.parentElement.parentElement.remove();
+  }
 
-})
+
+  if (inputValue !== "") {
+    alltoDos.push(inputValue);
+    createTodo();
+    inputValue = "";
+
+  } else {
+    alert("Please enter a valid todo")
+  }
+
+});
