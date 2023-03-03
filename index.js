@@ -19,21 +19,15 @@ btnAddElement.addEventListener("click", (e) => {
     <button class="delete" onClick="deleteTodo(this)"><i class="fa-solid fa-trash"></i></button>
     </div>
     `;
-    
+
     AllTodoItemElement.style.display = "block";
 
   }
-
-  let deleteTodo = (e) => {
-    e.parentElement.parentElement.remove();
-  }
-
 
   if (inputValue !== "") {
     alltoDos.push(inputValue);
     createTodo();
     inputValue = "";
-
   } else {
     alert("Please enter a valid todo")
   }
