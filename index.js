@@ -9,22 +9,38 @@ addBtnElement.addEventListener('click', (e) => {
   const inputValue = document.querySelector(".inputBox").value;
   if (inputValue !== "") {
     toDos.push(inputValue);
-    console.log(toDos);
+    inputBoxElement.value = " ";
   }
 
-  inputBoxElement.value = " ";
-
-  toDos.forEach((todo) => {
-    const toDoElement = document.createElement('div');
-    toDoElement.classList.add("todo");
-
-    const toDoItem = document.createElement('p');
-    toDoItem.innerText = todo;
-
-    toDoElement.append(toDoItem);
-
-    allToDosElement.append(toDoElement);
-
-  });
-
+  let id = 0;
+  if (id < toDos.length) {
+    iterate(id);
+    id++;
+  }
 })
+
+const iterate = (id) => {
+    const toDoitem = document.createElement('div');
+    toDoitem.classList.add("todo");
+    toDoitem.id = id;
+
+    const toDoitemText = document.createElement("p");
+    toDoitemText.innerText = toDos[id];
+
+    const toDoitemBtns = document.createElement('div');
+    toDoitemBtns.classList.add('toDoBtns');
+
+    const toDoitemBtnEdit = document.createElement('button');
+    const toDoitemBtnDelete = document.createElement("button");
+
+    toDoitemBtnEdit.innerText = "Edit";
+    toDoitemBtnDelete.innerText = "Delete";
+
+    toDoitemBtns.append(toDoitemBtnEdit, toDoitemBtnDelete);
+
+    toDoitem.append(toDoitemText, toDoitemBtns);
+
+    allToDosElement.append(toDoitem);
+
+    console.log(toDoitem);
+}
